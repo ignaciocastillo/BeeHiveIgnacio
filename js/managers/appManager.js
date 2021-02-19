@@ -2,9 +2,11 @@ class AppManager{
     constructor(){
         console.log('AppManager running!');
 
-        const netManager = new NetManager(this);
-        const dataManager = new DataManager(this);
-        const uiManager = new UIManager(this);
+        this.netManager = new NetManager(this);
+        this.dataManager = new DataManager(this);
+        this.uiManager = new UIManager(this);
+
+        this.netManager.downloadData();
 
 
     }
