@@ -22,11 +22,11 @@ class NetManager {
                 var data = JSON.parse(request.response);
                console.log(data);
                 //1. Parsed to user objects
-                /*data.forEach(user => {
+                data.forEach(user => {
                     var bee = new Bee(user.id, user.name, user.username, user.email, user.address, user.isOwner, user.phone, user.website, user.company);
-                    console.log(bee);
+                    //console.log(bee);
 
-                });*/
+                });
 
             }
 
