@@ -1,5 +1,5 @@
 class LoadingComponent extends Component{
-    constructor(parent, className, AppManager) {
+    constructor(parent, className, appManager) {
         super(parent, className, appManager);
     }
 }
