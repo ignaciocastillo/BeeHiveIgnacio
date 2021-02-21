@@ -1,5 +1,24 @@
-.mainComponent {
-    background-color: burlywood;
+.loadingComponent{
+    position: absolute;
+    background-color:var(--secondary-color);
     width: 100vw;
     height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadingComponent p{
+    color: white;
+    font-size: 60px;
+    font-weight: 900;
+}
+
+
+.loadingComponent_text{
+    color: blue;
+    font-size: 60px;
+    font-weight: 9000;
 }

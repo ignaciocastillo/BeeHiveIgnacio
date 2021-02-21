@@ -28,6 +28,8 @@ class NetManager {
 
                 });
 
+                this.appManager.uiManager.showBees();
+
             }
 
         } else {

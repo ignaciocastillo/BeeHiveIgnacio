@@ -18,7 +18,7 @@ const img = function (attributes, parent, children) {
     return tag('img', attributes, parent, children);
 }
 
-const p = function (attributes, parent, children) {
+const p = function (attributes, parent, children)  {
     return tag('p', attributes, parent, children);
 }
 
