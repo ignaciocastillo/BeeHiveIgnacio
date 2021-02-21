@@ -1,5 +1,5 @@
 .mainComponent{
-    position: absolute;
+    /*position: absolute;*/
     width: 100vw;
     height: 100vh;
     /*overflow: hidden;*/
@@ -7,10 +7,10 @@
 
 .mainComponent_content{ 
     background-color: khaki;
-    position: absolute;
     left: 0px;
     top: var(--navbar-height);
     width: 100%;
-    height: inherit;
-
+    margin-top: var(--navbar-height);
+    display: flex;
+    flex-direction: row;
 }

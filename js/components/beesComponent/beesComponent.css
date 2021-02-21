@@ -1,10 +1,9 @@
 .beesComponent{
-    width: 100%;
-    height: inherit;
+    width: 50%;
     background-color: ivory;
-
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0px 5px 0px 5px;
 
 }

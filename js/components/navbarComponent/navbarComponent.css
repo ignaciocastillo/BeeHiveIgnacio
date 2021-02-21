@@ -3,5 +3,6 @@
     background-color: var(--secondary-color);
     height: var(--navbar-height);
     width: 100%;
+    top: 0px;
     
 }
