@@ -10,6 +10,8 @@ class Bee {
         this.website = website;
         this.company = company;
         this.posts = [];
+        this.todos = [];
+        this.albums = [];
 
     }
 }

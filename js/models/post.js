@@ -4,5 +4,6 @@ class Post {
         this.userId = userId;
         this.title = title;
         this.body = body;
+        this.comments = [];
     }
 }

@@ -52,64 +52,118 @@ class NetManager {
   }
 
   parseBees(data) {
-    data.forEach(user => {
+    data.forEach(model => {
 
-      var geo = new Geo(user.address.geo.lat, user.address.geo.lng);
-      var address = new Address(user.address.city, geo, user.address.street, user.address.suite, user.address.zipcode);
-      var company = new Company(user.company.bs, user.company.catchPhrase, user.company.name);
-      var bee = new Bee(user.id, user.name, user.username, user.email, address, user.isOwner, user.phone, user.website, user.company);
+      var geo = new Geo(model.address.geo.lat, model.address.geo.lng);
+      var address = new Address(model.address.city, geo, model.address.street, model.address.suite, model.address.zipcode);
+      var company = new Company(model.company.bs, model.company.catchPhrase, model.company.name);
+      var bee = new Bee(model.id, model.name, model.modelname, model.email, address, model.isOwner, model.phone, model.website, model.company);
       this.appManager.dataManager.bees.push(bee);
     });
-    this.fetchComments();
-
-  }
-
-  parseComments(data) {
-    data.forEach(comment => {
-      //console.log(comment);
-    });
-
     this.fetchPosts();
-
 
   }
 
   parsePosts(data) {
-    data.forEach(post => {
-      //console.log(post);
+    data.forEach(model => {
+      var post = new Post(model.id, model.userId, model.title, model.body);
+      this.addPostToBee(post);
+
     });
-    this.fetchTodos();
+    this.fetchComments();
+
 
   }
-
   parseComments(data) {
-    data.forEach(comment => {
-      //console.log(comment);
+    data.forEach(model => {
+      var comment = new Comment(model.id, model.postId, model.name, model.body, model.email);
+      this.addCommentToPost(comment);
     });
     this.fetchTodos();
-
   }
 
   parseTodos(data) {
-    data.forEach(todo => {
-      //console.log(todo);
+    data.forEach(model => {
+      var todo = new Todo(model.id, model.userId, model.title, model.completed);
+      this.addTodoToBee(todo);
+
     });
     this.fetchAlbums();
   }
 
   parseAlbums(data) {
-    data.forEach(album => {
-      //console.log(album);
+    data.forEach(model => {
+      var album = new Album(model.id, model.userId, model.title);
+      this.addAlbumToBee(album);
+
     });
     this.fetchPhotos();
 
   }
 
   parsePhotos(data) {
-    data.forEach(photo => {
-      //console.log(photo);
+    data.forEach(model => {
+      var photo = new Photo(model.id, model.albumId, model.title, model.thumbnailUrl, model.url);
+      this.addPhotoToBeeAlbum(photo);
     });
     this.appManager.uiManager.showUI();
+    console.log(this.appManager.dataManager.bees);
   }
 
+  addPostToBee(post) {
+    var bee = this.getBeeById(post.userId);
+    if (bee) {
+      bee.posts.push(post);
+      return;
+    };
+
+  }
+
+  addCommentToPost(comment) {
+    this.appManager.dataManager.bees.forEach(bee => {
+      bee.posts.forEach(post => {
+        if (post.id == comment.postId) {
+          post.comments.push(comment);
+          return
+        };
+
+      });
+
+    });
+
+  }
+
+  addTodoToBee(todo) {
+    var bee = this.getBeeById(todo.userId);
+    if (bee) {
+      bee.todos.push(todo);
+    };
+  }
+
+  addAlbumToBee(album) {
+    var bee = this.getBeeById(album.userId);
+    if (bee) {
+      bee.albums.push(album);
+    }
+  }
+
+  addPhotoToBeeAlbum(photo) {
+    this.appManager.dataManager.bees.forEach(bee => {
+      bee.albums.forEach(album => {
+        if (album.ide == photo.albumId) {
+          album.photos.push(photo);
+        }
+      })
+    });
+
+  }
+
+  getBeeById(id) {
+    for (let i = 0; i < this.appManager.dataManager.bees.length; i++) {
+      if (this.appManager.dataManager.bees[i].id == id) {
+        return this.appManager.dataManager.bees[i];
+      }
+      return null;
+    }
+  }
 }
