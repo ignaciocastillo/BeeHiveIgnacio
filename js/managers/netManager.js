@@ -35,6 +35,22 @@ class NetManager {
     this.downloadData('posts.json', this.parsePosts.bind(this));
   }
 
+  fetchComments() {
+    this.downloadData('comments.json', this.parseComments.bind(this));
+  }
+
+  fetchTodos() {
+    this.downloadData('todos.json', this.parseTodos.bind(this));
+  }
+
+  fetchAlbums() {
+    this.downloadData('albums.json', this.parseAlbums.bind(this));
+  }
+
+  fetchPhotos() {
+    this.downloadData('photos.json', this.parsePhotos.bind(this));
+  }
+
   parseBees(data) {
     data.forEach(user => {
 
@@ -54,6 +70,37 @@ class NetManager {
       //console.log(post);
     });
 
-    this.appManager.uiManager.showBees();
+    this.fetchComments();
   }
+
+  parseComments(data) {
+    data.forEach(comment => {
+      //console.log(comment);
+    });
+    this.fetchTodos();
+
+  }
+
+  parseTodos(data) {
+    data.forEach(todo => {
+      //console.log(todo);
+    });
+    this.fetchAlbums();
+  }
+
+  parseAlbums(data) {
+    data.forEach(album => {
+      //console.log(album);
+    });
+    this.fetchPhotos();
+
+  }
+
+  parsePhotos(data) {
+    data.forEach(photo => {
+      //console.log(photo);
+    });
+    this.appManager.uiManager.showUI();
+  }
+
 }
