@@ -60,8 +60,17 @@ class NetManager {
       var bee = new Bee(user.id, user.name, user.username, user.email, address, user.isOwner, user.phone, user.website, user.company);
       this.appManager.dataManager.bees.push(bee);
     });
+    this.fetchComments();
+
+  }
+
+  parseComments(data) {
+    data.forEach(comment => {
+      //console.log(comment);
+    });
 
     this.fetchPosts();
+
 
   }
 
@@ -69,8 +78,8 @@ class NetManager {
     data.forEach(post => {
       //console.log(post);
     });
+    this.fetchTodos();
 
-    this.fetchComments();
   }
 
   parseComments(data) {

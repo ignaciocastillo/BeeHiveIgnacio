@@ -1,4 +1,4 @@
-class Bee{
+class Bee {
     constructor(id, name, username, email, address, isOwner, phone, website, company) {
         this.id = id;
         this.name = name;
@@ -9,6 +9,7 @@ class Bee{
         this.phone = phone;
         this.website = website;
         this.company = company;
+        this.posts = [];
 
     }
 }
