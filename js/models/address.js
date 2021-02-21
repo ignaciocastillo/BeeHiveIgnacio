@@ -3,6 +3,7 @@ class Address{
         this.city = city;
         this.geo = geo;
         this.street = street;
+        this.suite = suite;
         this.zipcode = zipcode;
     }
 }

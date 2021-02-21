@@ -1,4 +1,4 @@
-class Bee {
+class Bee{
     constructor(id, name, username, email, address, isOwner, phone, website, company) {
         this.id = id;
         this.name = name;
