@@ -25,7 +25,7 @@ class NetManager {
                 data.forEach(user => {
                     var bee = new Bee(user.id, user.name, user.username, user.email, user.address, user.isOwner, user.phone, user.website, user.company);
                     //console.log(bee);
-
+                    this.appManager.dataManager.bees.push(bee);
                 });
 
                 this.appManager.uiManager.showBees();

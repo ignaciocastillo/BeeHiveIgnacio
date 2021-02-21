@@ -1,6 +1,6 @@
 class DataManager{
     constructor(appManager){
-        this.appManager = AppManager;
+        this.appManager = appManager;
         this.bees = [];
         
     }
