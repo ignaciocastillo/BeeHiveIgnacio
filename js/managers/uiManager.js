@@ -12,6 +12,6 @@ class UIManager{
 
     showBees(){
         this.loadingComponent.hide();
-        this.mainComponent.showBees();
+        this.mainComponent.showContent();
     }
 }

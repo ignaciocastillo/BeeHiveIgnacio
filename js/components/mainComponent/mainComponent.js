@@ -6,11 +6,13 @@ class MainComponent extends Component{
         this.beesComponent = null;
 
     }
-        showBees() {
-            this.content.style.Height = (this.container.clientHeight - this.appManager.uiManager.navbarHeight) 
-            + 'px';
+        showContent() {
+            var height = this.content.style.Height = (this.container.clientHeight - (this.appManager.uiManager.navbarHeight + 5)) + 'px';
+
+            this.content.style.height = height;
+
             this.beesComponent =  new BeesComponent(this.content, 'beesComponent', this.appManager);
-            this.beesComponent =  new BeesComponent(this.content, 'beesComponent', this.appManager);
+
 
     }
 }
