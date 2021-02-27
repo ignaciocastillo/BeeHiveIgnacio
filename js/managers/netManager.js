@@ -150,7 +150,7 @@ class NetManager {
   addPhotoToBeeAlbum(photo) {
     this.appManager.dataManager.bees.forEach(bee => {
       bee.albums.forEach(album => {
-        if (album.ide == photo.albumId) {
+        if (album.id == photo.albumId) {
           album.photos.push(photo);
         }
       })
