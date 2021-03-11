@@ -6,7 +6,7 @@ class BeesComponent extends Component {
     addBees() {
         const bees = this.appManager.dataManager.bees;
         bees.forEach(model => {
-            const beeComponent = new BeeComponent(this.container, 'beeComponent', this.appManager)
+            const beeComponent = new BeeComponent(this.container, 'beeComponent', this.appManager, model)
         });
     }
 

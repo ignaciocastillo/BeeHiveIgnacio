@@ -1,17 +1,18 @@
-class Component{
-    constructor(parent, className, appManager){
+class Component {
+    constructor(parent, className, appManager, model) {
         this.parent = parent;
-        this.appManager =  appManager;
-        this.container = div({'className': className }, this.parent, null);
+        this.appManager = appManager;
+        this.model = model;
+        this.container = div({ 'className': className }, this.parent, null);
     }
 
 
-    hide(){
+    hide() {
         this.container.hidden = true;
         this.container.classList.add('hidden');
     }
 
-    show(){
+    show() {
         this.container.hidden = false;
         this.container.classList.remove('hidden');
     }
