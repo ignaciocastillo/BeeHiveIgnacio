@@ -3,8 +3,11 @@ class Component {
         this.parent = parent;
         this.appManager = appManager;
         this.model = model;
+<<<<<<< HEAD
         this.container = div({ 'className': className }, this.parent, null);
     }
+=======
+>>>>>>> parent of f13f391 (Commit)
 
 
     hide() {
