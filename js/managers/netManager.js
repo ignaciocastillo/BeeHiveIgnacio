@@ -57,7 +57,7 @@ class NetManager {
       var geo = new Geo(model.address.geo.lat, model.address.geo.lng);
       var address = new Address(model.address.city, geo, model.address.street, model.address.suite, model.address.zipcode);
       var company = new Company(model.company.bs, model.company.catchPhrase, model.company.name);
-      var bee = new Bee(model.id, model.name, model.username, model.email, address, model.isOwner, model.phone, model.website, model.company);
+      var bee = new Bee(model.id, model.name, model.modelname, model.email, address, model.isOwner, model.phone, model.website, model.company);
       this.appManager.dataManager.bees.push(bee);
     });
     this.fetchPosts();

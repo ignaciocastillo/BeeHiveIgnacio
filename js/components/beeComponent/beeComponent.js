@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class BeeComponent extends Component {
     constructor(parent, className, appManager, model) {
         super(parent, className, appManager, model);
@@ -61,4 +62,10 @@ class BeeComponent extends Component {
     onTodosBtn() {
         this.appManager.uiManager.showTodosListComponent(this.model);
     }
+=======
+class BeeComponent extends Component{
+    constructor(parent, className, appManager) {
+        super(parent, className, appManager);
+}
+>>>>>>> parent of e4f8f21 (Bees first step)
 }
