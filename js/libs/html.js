@@ -30,6 +30,10 @@ const input = function (attributes, parent, children) {
     return tag('input', attributes, parent, children);
 }
 
+const textarea = function (attributes, parent, children) {
+    return tag('textarea', attributes, parent, children);
+}
+
 const label = function (attributes, parent, children) {
     return tag('label', attributes, parent, children);
 }

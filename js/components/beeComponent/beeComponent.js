@@ -3,16 +3,62 @@ class BeeComponent extends Component {
         super(parent, className, appManager, model);
         this.addUI();
         this.name = null;
-        this.username = null;
         this.email = null;
-        this.phone = null;
-
+        this.username = null;
+        this.website = null;
     }
 
     addUI() {
-        this.name = p({ 'innerHTML': this.model.name, 'className': 'beeName' }, this.container, null);
-        this.username = p({ 'innerHTML': `${'Username: '} ${this.model.username}`, 'className': 'beeUsername' }, this.container, null);
-        this.email = p({ 'innerHTML': `${'Email: '} ${this.model.email}`, 'className': 'beeEmail' }, this.container, null);
-        this.phone = p({ 'innerHTML': `${'Phone: '} ${this.model.phone}`, 'className': 'beePhone' }, this.container, null);
+        this.avatarContainer = div({
+            'className': 'beeComponent_avatar_container'
+        }, this.container, null);
+        this.avatar = img({
+            'src': this.model.avatar,
+            'className': 'beeComponent_avatar'
+        }, this.avatarContainer, null);
+
+        this.infoContainer = div({
+            'className': 'beeComponent_info_container'
+        }, this.container, null)
+
+        this.buttonsContainer = div({
+            'className': 'beeComponent_buttons_container'
+        }, this.container, null)
+
+        this.name = p({
+            'innerHTML': this.model.name,
+            'className': 'beeComponent_name'
+        }, this.infoContainer, null);
+
+        this.username = p({
+            'innerHTML': this.model.username,
+            'className': 'beeComponent_username'
+        }, this.infoContainer, null);
+
+        this.email = p({
+            'innerHTML': this.model.email,
+            'className': 'beeComponent_email'
+        }, this.infoContainer, null);
+
+        this.website = p({
+            'innerHTML': this.model.website,
+            'className': 'beeComponent_website'
+        }, this.infoContainer, null)
+
+        this.postsBtn = new BeeButtonComponent(this.buttonsContainer, 'beeComponet_button_wrapper', this.appManager, this.onPostsBtn.bind(this), this.model.posts.length, 'paper-plane.svg');
+        this.albumsBtn = new BeeButtonComponent(this.buttonsContainer, 'beeComponet_button_wrapper', this.appManager, this.onAlbumsBtn.bind(this), this.model.albums.length, 'picture.svg');
+        this.todosBtn = new BeeButtonComponent(this.buttonsContainer, 'beeComponet_button_wrapper', this.appManager, this.onTodosBtn.bind(this), this.model.todos.length, 'task.svg');
+    }
+
+    onPostsBtn() {
+        this.appManager.uiManager.showPostListComponent(this.model);
+    }
+
+    onAlbumsBtn() {
+        this.appManager.uiManager.showAlbumListComponent(this.model);
+    }
+
+    onTodosBtn() {
+        this.appManager.uiManager.showTodosListComponent(this.model);
     }
 }
