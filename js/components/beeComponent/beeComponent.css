@@ -17,3 +17,20 @@
     flex-direction: row;
     
 }
+.beeName{
+    font-size: 20px;
+    font-weight: bold;
+}
+  
+.beeUsername{
+    font-size: 14px;
+}
+  
+.beeEmail{
+    font-size: 14px;
+}
+  
+.beePhone{
+    font-size: 14px;
+}
+  

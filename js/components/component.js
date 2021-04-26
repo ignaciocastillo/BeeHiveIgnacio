@@ -1,26 +1,20 @@
-class Component{
-    constructor(parent, className, appManager){
+class Component {
+    constructor(parent, className, appManager, model) {
         this.parent = parent;
-<<<<<<< HEAD
         this.appManager = appManager;
         this.model = model;
-=======
-        this.appManager =  appManager;
-        this.container = div({'className': className }, this.parent, null);
-    }
->>>>>>> parent of e4f8f21 (Bees first step)
 
         this.container = div({
             'className': className
         }, this.parent, null)
     }
 
-    hide(){
+    hide() {
         this.container.hidden = true;
         this.container.classList.add('hidden');
     }
 
-    show(){
+    show() {
         this.container.hidden = false;
         this.container.classList.remove('hidden');
         this.moveIn();
